@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <form [formGroup]="customerFormGroup">
+    <table>
+      <tr>
+        <td>No</td>
+        <td><input type="text" formControlName="customernumber"></td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td><input type="text" formControlName="username"></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input type="text" formControlName="password"></td>
+      </tr>
+      <tr>
+        <td>Birthdate</td>
+        <td><input type="date" formControlName="birthdate"></td>
+      </tr>
+      <tr>
+        <td>Firstname</td>
+        <td><input type="text" formControlName="firstname"></td>
+      </tr>
+      <tr>
+        <td>Lastname</td>
+        <td><input type="text" formControlName="lastname"></td>
+      </tr>
+      <tr>
+        <td>Phone type</td>
+        <td><input type="text" formControlName="phonetype"></td>
+      </tr>
+      <tr>
+        <td>Phone number</td>
+        <td><input type="text" formControlName="phonenumber"></td>
+      </tr>
+
+    </table>
+  </form>
+  <button type="button" (click)='cancel()'>cancel</button>
+  <button type="button" (click)='submitData()' [disabled]='!customerFormGroup.valid'>submit</button>
+</body>
+
+<!-- <div class="container-fluid mb-5">
+  <form>
+    <div class="form-group">
+      <label>Customer number</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <div>
+      <label>Username</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <div>
+      <label>Password </label>
+      <input type="text" class="form-control">
+    </div>
+
+    <div>
+      <label>Birthdate</label>
+      <input type="date" class="form-control">
+    </div>
+
+    <div>
+      <label>Firstname</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <div>
+      <label>Lastname</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <div>
+      <label>Phone type</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <div>
+      <label>Phone number</label>
+      <input type="number" class="form-control">
+    </div>
+  </form>
+</div> -->
+
+</html>

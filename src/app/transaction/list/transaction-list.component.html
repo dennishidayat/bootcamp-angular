@@ -1,0 +1,61 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <h4>Transaction List</h4>
+            <div class="table-responsive">
+                
+                <div>
+                    <button (click)='create()'>Add New</button>
+                </div>
+
+                <div>
+                        <app-transaction-form #formTrx *ngIf="showDetail" [transaction]="selectedTransaction" (result)="prosesResult($event)"></app-transaction-form>
+                    </div>
+
+
+                <table id="mytable" class="table table-bordred table-striped">
+
+                    <thead>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Amount sign</th>
+                        <th>Account number</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let trx of listTransaction">
+                            <td>{{ trx.id }}</td>
+                            <td>{{ trx.type }}</td>
+                            <td>{{ trx.amount | number:'3.2-5' }}</td>
+                            <td>{{ trx.amountsign }}</td>
+                            <td>{{ trx.account.accountnumber }}</td>
+                            <td>
+                                <p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"
+                                        (click)="selectTransaction(trx);" data-title="Edit" data-toggle="modal" data-target="#edit"><span
+                                            class="glyphicon glyphicon-pencil"></span></button></p>
+                            </td>
+                            <td>
+                                <p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"
+                                        (click)="deleteRow(trx.id)" data-title="Delete" data-toggle="modal"
+                                        data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</div>

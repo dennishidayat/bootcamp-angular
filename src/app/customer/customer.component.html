@@ -1,0 +1,16 @@
+<!-- <div class="login-page">
+  <div class="form">
+    <form class="login-form">
+      <input type="text" #name (keyup)="0" placeholder="Username" />
+      <input type="text" #accdata (keyup)="0" placeholder="password" />
+      <button style="float:left; width:50%;height: 60px; margin: 0px 0 15px;">Reset</button>
+      <button (click)="ok()" style="float: right; width:50%; height: 60px; margin: 0px 0 15px;">Login</button>
+    </form>
+  </div>
+</div> -->
+
+<input type="text" [(ngModel)]="user">
+
+<app-account (childEvent)="message=$event" [data]="user"></app-account>
+
+<router-outlet></router-outlet>

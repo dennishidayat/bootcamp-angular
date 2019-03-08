@@ -1,0 +1,36 @@
+<html>
+<div>
+
+  <body>
+    <form [formGroup]="accountFormGroup">
+      <table>
+        <tr>
+          <td>No</td>
+          <td>:</td>
+          <td><input type="text" formControlName="accountnumber"></td>
+        </tr>
+        <tr>
+          <td>Open date</td>
+          <td>:</td>
+          <td><input type="date" formControlName="opendate"></td>
+        </tr>
+        <tr>
+          <td>Balance</td>
+          <td>:</td>
+          <td><input type="text" formControlName="balance"></td>
+        </tr>
+        <tr>
+        <tr>
+          <td>Customer number</td>
+          <td>:</td>
+          <td><app-combo-customer (customer)="setSelectedCustomer($event)"></app-combo-customer></td>
+        </tr>
+      </table>
+    </form>
+    <button type="button" (click)='cancelChange()'>Cancel</button>
+    <button type="button" (click)='submitData()' [disabled]='!accountFormGroup.valid'>submit</button>
+  </body>
+</div>
+
+
+</html>

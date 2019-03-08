@@ -1,0 +1,6 @@
+
+<select (change)='onChange($event.target.value)'>
+  <option *ngFor='let acc of listAccount; let i = index' [value]='i'>
+    {{ acc.accountnumber}}
+  </option>
+</select>

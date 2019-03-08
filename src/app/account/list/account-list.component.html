@@ -1,0 +1,87 @@
+<!--
+<div>
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>opendate</th>
+            <th>balance</th>
+            <th>customernum</th>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let acc of listAccount">
+                <td><a (click)="selectAccount(acc);"><u>{{ acc.accountnumber }}</u></a> </td>
+                <td>{{ acc.opendate }}</td>
+                <td>{{ acc.balance }}</td>
+                <td>{{ acc.customernum }}</td>
+                <button (click)="deleteRow(acc.accountnumber)">Del</button>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <h4>Account List</h4>
+            <div class="table-responsive">
+
+                <div>
+                    <button (click)='create()'>Add New</button>
+                </div>
+
+                <div>
+                    <app-account-form #formAcc *ngIf="showDetail" [account]="selectedAccount" (result)="prosesResult($event)"></app-account-form>
+                </div>
+
+                <table id="mytable" class="table table-bordred table-striped">
+
+                    <thead>
+                        <th>Account number</th>
+                        <th>Open date</th>
+                        <th>Balance</th>
+                        <th>Customer number</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>View Transaction</th>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let acc of listAccount">
+                            <td>{{ acc.accountnumber }}</td>
+                            <td>{{ acc.opendate }}</td>
+                            <td>{{ acc.balance | currency:"Rp. " }}</td>
+                            <td>{{ acc.customer.customernumber }}-{{ acc.customer.firstname }} </td>
+                            <td>
+                                <p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"
+                                        (click)="selectAccount(acc);" data-title="Edit" data-toggle="modal" data-target="#edit"><span
+                                            class="glyphicon glyphicon-pencil"></span></button></p>
+                            </td>
+                            <td>
+                                <p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"
+                                        (click)="deleteRow(acc.accountnumber)" data-title="Delete" data-toggle="modal"
+                                        data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></p>
+                            </td>
+                            <td>
+                                <p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"
+                                        (click)="viewById(acc)" data-title="Edit" data-toggle="modal" data-target="#edit"><span
+                                            class="glyphicon glyphicon-link"></span></button></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</div>
